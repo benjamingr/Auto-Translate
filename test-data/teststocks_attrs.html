@@ -1,0 +1,136 @@
+<div class="view-container stocks-view">
+
+    <!-- header -->
+    <header class="stocks">
+        <h1>Most Recommended Stocks</h1>
+        <p>Top recommended stocks are selected based on a TipRanks developed formula, factoring in ratings made by the best performing analysts.</p>
+    </header>
+
+    <div class="view-inner">
+
+
+        <!-- expert settings -->
+        <div class="performance-filters-wrapper">
+            <tr-inline-settings type="performance"></tr-inline-settings>
+        </div>
+
+        <!-- sector overview -->
+        <section class="sector-overview">
+            <h1 class="feature-title">Sector Overview</h1>
+            <div class="feature">
+                <div class="content">
+                    <h2 class="feature-content-title">Best Performing Analyst Ratings Per Sector</h2>
+                    <figure ng-class="{ 'loading': isLoading }">
+                        <ul>
+                            <li ng-repeat="sector in sectors">
+                                <div class="sector-name">{{ sector.name }}</div>
+                                <div class="sector-map">
+                                    <div class="map-bar buy-bar" ng-style="{ 'width': sector.buyPercentStyle }"></div>
+                                    <div class="map-bar hold-bar" ng-style="{ 'width': sector.holdPercentStyle }"></div>
+                                    <div class="map-bar sell-bar" ng-style="{ 'width': sector.sellPercentStyle }"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </figure>
+                    <figcaption>
+                        <ul>
+                            <li class="buy"><tr-translate name='hello'>Buy Recommendations</tr-translate></li>
+                            <li class="hold">Hold Recommendations</li>
+                            <li class="sell">Sell Recommendations</li>
+                        </ul>
+                    </figcaption>
+                </div>
+            </div>
+        </section>
+
+        <!-- investment criteria -->
+        <section class="investment-criteria">
+            <h1 class="feature-title">Investment Criteria</h1>
+            <div class="feature" tr-restricted="mostRecommendedStocksFilters" tr-restricted-analytic="recomennded-stocks-filters">
+                <section class="criteria-group" ng-repeat="criteria in filters">
+                    <h1>{{ criterias[criteria].name }}</h1>
+                    <ul ng-class="{ 'double': criteria === 'sectors' }">
+                        <li ng-repeat="option in criterias[criteria].options" ng-hide="option.isHidden" ng-class="{ 'is-all': option.isAll }">
+                            <label ng-switch="criterias[criteria].type">
+                                <input ng-switch-when="radio" type="{{ criterias[criteria].type }}" ng-model="criterias[criteria].modelName" value="{{ option.val }}" ng-change="handleRadioChange(criterias[criteria], option)" />
+                                <input ng-switch-when="checkbox" type="{{ criterias[criteria].type }}" ng-model="option.val" ng-change="handleCheckboxChange(criterias[criteria], option)" />
+                                <span class="label">{{ option.name }}</span>
+                            </label>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+
+        <!-- most recommended stocks -->
+        <section class="most-recommended-stocks">
+            <h1 class="feature-title">Most Recommended Stocks</h1>
+            <div class="feature" ng-class="{ 'loading': isLoading }">
+                <div class="no-data" ng-if="stocks.length === 0">
+                    <img src="/images/stocks/no-data.png">
+                </div>
+                <ul tr-restricted="mostRecommendedStocks" tr-restricted-analytic="recomennded-stocks" ng-if="stocks.length > 0">
+                    <li ng-repeat="stock in stocks">
+                        <div class="info">
+                            <div class="info-inner">
+                                <div class="right-info">
+                                    <div class="subscription">
+                                        <button tr-subscribe="stock" ng-class="{ 'subscribed': user.isSubscribedToStock(stock.stockUid) }" ng-click="reportSubscriptionClick('clicked-follow-stock-btn')" follow-analytics="stock-btn-stocks">{{ user.isSubscribedToStock(stock.stockUid) ? 'Following' : 'Follow' }}</button>
+                                    </div>
+                                    <span class="last-rating">{{ stock.lastRating }}</span>
+                                </div>
+                                <div class="stock-names" title="{{ stock.name }}">
+                                    <span class="name" title="{{ stock.name }}">{{ stock.name }}</span>
+                                    <span class="ticker">(<a app-route="stocks~~~{{ stock.ticker }}" title="{{ stock.name }}" ng-click="report('clicked-stock-profile-most-recommended')">{{ stock.ticker }}</span></a>)
+                                </div>
+                                <!--<span class="market">{{ stock.market }}</span>-->
+                                <div class="price-wrapper">
+                                    <span class="price">{{ stock.price }}</span>
+                                    <span class="price-change change" ng-class="{ 'trend-up': stock.priceChangeTrendUp }">{{ stock.priceChange }}</span>
+                                </div>
+                                <span class="sector">
+                                    <span class="field">Sector:</span>
+                                    <strong>{{ stock.sectorName }}</strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="more-info">
+                            <section class="rating-figure">
+                                <h1>Stock Rating:
+                                    <span class="{{ stock.ratingName }}">{{ stock.ratingName }}</span>
+                                </h1>
+                                <div class="rating-gage-img">
+                                    <img src="images/stocks/gage-{{ stock.rating
+                                     }}-{{ stock.score }}.png" />
+                                </div>
+                            </section>
+                            <section class="price-target">
+                                <h1>Price Target</h1>
+                                <div class="price-target-figure" ng-class="{ 'negative': stock.priceTargetChange < 0 }">$
+                                    <span class="figure">{{ stock.priceTarget }}</span>
+                                </div>
+                                <div class="price-target-change-figure">(
+                                    <span class="arrow {{ stock.priceTargetChange < 0 ? 'downside' : 'upside' }}">{{ abs(stock.priceTargetChange) }}%</span>&nbsp;{{ stock.priceTargetChange
+                                    < 0 ? 'downside' : 'upside' }})</div>
+                            </section>
+                            <section class="recent-stock-behaviour">
+                                <h1>Recent Stock Behavior</h1>
+                                <div class="recent-stock-behaviour-percent" ng-class="{ 'negative': stock.recentStockBehaviourPercent < 0 }">{{ stock.recentStockBehaviourPercent }}%</div>
+                                <d3bahaviour data="stock.recentStockBehaviour"></d3bahaviour>
+                                <br />
+                                <span class="note">Since last rating ({{ stock.lastRating }})</span>
+                            </section>
+                            <section class="rating-reasoning">
+                                <h1>Rating Reasoning</h1>
+                                <span rating-reasoning="stock.reason.templateID" rating-reasoning-model="stock.ratingReasoningModel"></span>
+                            </section>
+                            </div>
+                    </li>
+                </ul>
+                </div>
+        </section>
+
+        </div>
+
+
+    </div>
