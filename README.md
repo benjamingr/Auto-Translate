@@ -47,6 +47,7 @@ Updating the HTML or JS file with JSON
 node translator.js  --source=YOURJSOrHTMLSourceFile --json=YOURJSON.json --lang=en --dir=jsonToFile
 ```
 
+For more info please see [The Getting Started Page](./GettingStarted.MD)
 
 ###Running tests
   
@@ -61,4 +62,4 @@ You may open issues for support here but I'd rather have them at StackOverflow.
 
 ###Contributing
 
-Contributions are welcome.
+Contributions are welcome
