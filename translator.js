@@ -38,7 +38,7 @@ function main(){
 	}).then(function(){
 		return translator[action]();
 	}).then(function(){
-		//return fs.unlinkSync(args.json+"."+args.lang);
+		return fs.unlinkSync(args.json+"."+args.lang);
 	}).then(function(){
 		console.log("Operation Completed Successfully");
 	}).catch(function(err){
