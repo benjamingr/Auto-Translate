@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Trasnlates TipRanks angular code around",
   "main": "extract-json.js",
+  "bin": "translator.js",
   "dependencies": {
     "bluebird": "^2.3.2",
     "cheerio": "^0.17.0",
