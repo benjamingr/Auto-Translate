@@ -44,7 +44,7 @@ node translator.js  --source=YOURJSOrHTMLSourceFile --json=YOURJSON.json --lang=
 Updating the HTML or JS file with JSON
 
 ```
-node translator.js  --source=YOURJSOrHTMLSourceFile --json=YOURJSON.json --lang=en --dir=fileToJson
+node translator.js  --source=YOURJSOrHTMLSourceFile --json=YOURJSON.json --lang=en --dir=jsonToFile
 ```
 
 
@@ -54,3 +54,11 @@ Run the tests using `mocha tests`.
 
 
 Users may use it under the MIT license.
+
+###Support
+
+You may open issues for support here but I'd rather have them at StackOverflow. 
+
+###Contributing
+
+Contributions are welcome.
