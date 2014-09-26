@@ -1,7 +1,7 @@
 {
   "name": "auto-translator",
   "version": "0.1.0",
-  "description": "Trasnlates angular code around from translation json files back to JS so you can work on your translations easily",
+  "description": "Translates angular code around from translation json files back to JS so you can work on your translations easily",
   "main": "extract-json.js",
   "bin": "translator.js",
   "dependencies": {
@@ -17,6 +17,10 @@
   },
   "scripts": {
     "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benjamingr/Auto-Translate"
   },
   "author": "Benjamin Grunebaum, Sahar Rachamim, TipRanks",
   "license": "MIT"

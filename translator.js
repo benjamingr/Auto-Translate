@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 var FileTranslator = require("./FileTranslator.js");
 var Promise = require("bluebird");
@@ -25,7 +26,7 @@ function main(){
 		return;
 	}
 	var formattingOptions = {};
-	
+
 	var translator = new FileTranslator(args.lang, args.json, args.source, formattingOptions);
 	var action = ({
 		"fileToJson":"toJson",
