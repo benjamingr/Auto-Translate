@@ -1,7 +1,7 @@
 Getting started
 ---------------
 
-This workflow assumes you've already got the code in one language and want to start translating it to a second language. 
+This workflow assumes you've already got the code in one language and want to start translating it to a second language.
 
 
 First, install the project from npm:
@@ -45,11 +45,11 @@ Or alternatively:
 
 > Note: `auto-translator` keeps backups of your changed files from the last 3 days, you can find them in the `bak/` folder.
 
-Your HTML/JS translations have all been extracted from the file to `yourjson.json`. You can now work on it, send it away to a translator and add another language. Now, let's say you want to see your site for example in German, rather than loading your `json` dynamically which would make a suboptimal dynamic experience - type: 
+Your HTML/JS translations have all been extracted from the file to `yourjson.json`. You can now work on it, send it away to a translator and add another language. Now, let's say you want to see your site for example in German, rather than loading your `json` dynamically which would make a suboptimal dynamic experience - type:
 
     auto-translator --source=YOURJSOrHTMLSourceFile --json=YOURJSON.json --lang=de --dir=jsonToFile
 
-Your HTML/JS file has now been populated with your German source, you can easily look at your source and update it directly, when you're done, move the german files back to the JSON. 
+Your HTML/JS file has now been populated with your German source, you can easily look at your source and update it directly, when you're done, move the german files back to the JSON.
 
 
     auto-translator --source=YOURJSOrHTMLSourceFile --json=YOURJSON.json --lang=de --dir=fileToJson

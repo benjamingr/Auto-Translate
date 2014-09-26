@@ -52,7 +52,7 @@ describe("importing JSON into a JS file", function(){
 		var res = t.importIntoJS("translatedd('hello', 'world');", {"hello": "foo"})
 		assert(res.js === "translatedd('hello', 'world');")
 	});
-	
+
 	it("should replace a term from assignment", function(){
 		var res = t.importIntoJS("var x = translated('hello', 'world');", {"hello": "foo"})
 		assert(res.js === "var x = translated('hello', 'foo');")

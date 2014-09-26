@@ -17,7 +17,7 @@ describe("importing JSON into a JS file", function(){
 	it("compiles", function(){
 		t;
 	});
-	
+
 	it("requires loading data", function(){
 		assert.throws(function(){
 			t.fileResult("./test-data/empty.js")
@@ -62,7 +62,7 @@ describe("importing JSON into a JS file", function(){
 		});
 	});
 
-	describe("missing", function(){ 
+	describe("missing", function(){
 		var p = fs.readFileAsync("./test-data/testbasic.html");
 
 		it("logs misses on an html file correctly (no key)", function(){
@@ -156,7 +156,7 @@ describe("importing JSON into a JS file", function(){
 				assert.equal(res.data, "translated('foo', 'baz');")
 			});
 		});
-		
+
 		it("produces correct result with no replace and value", function(){
 			t.loadStatic({});
 			return t.fileResult("./test-data/simplejs.js").then(function(res){

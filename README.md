@@ -11,12 +11,12 @@ This package is meant for processing multiple languages in Angular. Translation 
 
 Translating is hard and working with foreign JSON files isn't fun, especially when you need to debug how something looks in a foreign language and you end up going back and forth between JSON translations and HTML files.
 
-This solves that problem. 
+This solves that problem.
 
 For example, you can take:
 
     var foo = translated("greeting","Hello!");
-    
+
 Run this with fileToJson and lang=en and get
 
     {"greeting":{"en": "Hello!"}
@@ -31,7 +31,7 @@ Now, if you want to build or debug the german version, you can run the code with
 
 When you're done working on it, you can push it back to the json and load another version. This also has the advantage that translation is a build step and there is no performance overhead in having a translated site.
 
-The HTML syntax is `<tr-translated="greeting">Hello</tr-translated>` and does the same thing. 
+The HTML syntax is `<tr-translated="greeting">Hello</tr-translated>` and does the same thing.
 
 ###Usage
 
@@ -50,15 +50,15 @@ node translator.js  --source=YOURJSOrHTMLSourceFile --json=YOURJSON.json --lang=
 For more info please see [The Getting Started Page](./GettingStarted.MD)
 
 ###Running tests
-  
-Run the tests using `mocha tests`. 
+
+Run the tests using `mocha tests`.
 
 
 Users may use it under the MIT license.
 
 ###Support
 
-You may open issues for support here but I'd rather have them at StackOverflow. 
+You may open issues for support here but I'd rather have them at StackOverflow.
 
 ###Contributing
 

@@ -70,7 +70,7 @@ describe("The translation manager",function(){
 			assert(Object.keys(resp).length === 1);
 		});
 	});
-	
+
 	it("creates js from json and js", function(){
 		var js = "translated('foo', 'bar');";
 		var j = '{"foo":"baz"}';
@@ -84,5 +84,5 @@ describe("The translation manager",function(){
 			assert.equal(res, "translated('foo', 'baz');");
 		})
 	});
-	
+
 })

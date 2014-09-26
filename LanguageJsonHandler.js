@@ -37,7 +37,7 @@ LanguageJsonHandler.prototype.mergeIntoMultiLanguageJson = function(toFile) {
 
 	return readJson(toFile).then(function(multiLang){
 		var allKeys = Object.keys(multiLang).concat(Object.keys(this.data));
-		
+
 		allKeys.forEach(function(key){
 			var local = this.data[key]
 			if(!local) {

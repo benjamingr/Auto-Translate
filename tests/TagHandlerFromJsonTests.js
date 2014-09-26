@@ -141,7 +141,7 @@ describe("Tag handler html replacements", function(){
 			.map(fs.unlinkSync.bind(fs));
 		});
 	});
-	
+
 	it("does not swap on missing property", function(){
 		var path = "./test-data/swapMe";
 		return Promise.try(function(){
