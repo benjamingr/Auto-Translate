@@ -1,9 +1,9 @@
-Angular-Auto-Translate
+Auto-Translate
 ======================
 
-Translating multiple languages in Angular through JSON seamlessly
+Translating multiple languages in JS/HTML through JSON seamlessly.
 
-We use this at TipRanks internally, anyone who wants to read the code have a go - but this is for internal use and we do not intend to provide support any external users. Pull requests will be entertained if accompanied by tests.
+We use this at TipRanks for Angular internally, anyone who wants to read the code have a go - but this is for internal use and we do not intend to provide paid support to any external users, issues/SO questions welcome. Pull requests will be entertained if accompanied by tests.
 
 ###What this does
 
