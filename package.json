@@ -1,7 +1,7 @@
 {
-  "name": "tipranksTranslator",
+  "name": "auto-translator",
   "version": "0.1.0",
-  "description": "Trasnlates TipRanks angular code around",
+  "description": "Trasnlates angular code around from translation json files back to JS so you can work on your translations easily",
   "main": "extract-json.js",
   "bin": "translator.js",
   "dependencies": {

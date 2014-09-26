@@ -37,7 +37,11 @@ TagHandler.prototype.extractFromHtml = function extractFromHtml(rawHtml){
 	var tags = $(this.tagName).get();
 	return tags.map(function(tag){
 		var $tag = $(tag)
-		return { name: $tag.attr("name"), html: $tag.html() };
+		var content = $tag.html();
+		if($tag.attr("selector")){
+			content = $($tag.attr("selector")).attr($tag.attr("attr-name"))
+		}
+		return { name: $tag.attr("name"), html: content };
 	});
 };
 
