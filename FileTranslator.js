@@ -36,7 +36,7 @@ FileTranslator.prototype.fromJson = function(){
 	return this.jsonHandler.readGlobalFile(this.langJson).then(function(){
 		this.jsonHandler.mergeIntoLocal(this.langJson+"."+this.lang);
 	}.bind(this)).then(function(){
-		return strategy(this.langJson+"."+this.lang, 
+		return strategy(this.langJson+"."+this.lang,
 						this.fileToTranslate,
 						this.fileToTranslate);
 	}.bind(this));

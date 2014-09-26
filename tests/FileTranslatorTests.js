@@ -11,7 +11,7 @@ var translatedHtml = "./test-data/tempfile.html";
 
 
 describe("End to end translation", function(){
-	
+
 	it("translates js end to end", function(){
 		return withJs("translated('Hello', 'World');", {"Hello":{"en":"Moshe"}}, function(){
 			var t = new FileTranslator("en", translationFile, translatedJs);
@@ -96,7 +96,7 @@ function withHtml(file, json, fn){
 }
 function readFile(fromFile){
 	return fs.readFileAsync(fromFile).
-		   then(function(buffer){ 
+		   then(function(buffer){
 		   	 return buffer.toString();
 		   });
 }

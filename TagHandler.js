@@ -81,7 +81,7 @@ TagHandler.prototype.swapLangInFile = function swapLangInFile(filePath, translat
 			err.isAsync = true;
 			return fs.renameAsync(bak, filePath). // restore
 			throw(err);
-		} 
+		}
 		return fs.writeFileAsync(filePath, replacedContent.html).return(replacedContent);
 	});
 };

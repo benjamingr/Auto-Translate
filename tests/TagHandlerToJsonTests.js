@@ -41,21 +41,21 @@ describe("the tag handler", function(){
 	it("extracts nothing from a unrelated basic file", function(){
 		var extract = new TagHandler("tr-translate");
 		return extract.extractFromFile("./test-data/testbasic.clean.html").then(function(res){
-			assert(res.length === 0);	
+			assert(res.length === 0);
 		});
 	});
 
 	it("extracts nothing from a unrelated realistic file", function(){
 		var extract = new TagHandler("tr-translate");
 		return extract.extractFromFile("./test-data/teststocks_no_attrs.html").then(function(res){
-			assert(res.length === 0);	
+			assert(res.length === 0);
 		});
 	});
 	it("extracts something from a related file", function(){
 		var extract = new TagHandler("tr-translate");
 		return extract.extractFromFile("./test-data/testbasic.html").then(function(res){
 			assert(res.length === 1);
-			assert(res[0].name === "hello" && res[0].html === "world");	
+			assert(res[0].name === "hello" && res[0].html === "world");
 		});
 	});
 	it("unwraps nothing when nothing is there to unwrap", function(){
@@ -72,7 +72,7 @@ describe("the tag handler", function(){
 		var extract = new TagHandler("foo");
 		assert(extract.unwrapHtml("<div><span>Hello</span></div>") === "<div><span>Hello</span></div>");
 	});
-	
+
 	it("unwraps a basic tag", function(){
 		var extract = new TagHandler("foo");
 		assert(extract.unwrapHtml("<foo>Hello</foo>") === "Hello");
@@ -127,9 +127,9 @@ describe("the tag handler", function(){
 		var extract = new TagHandler("tr-translate");
 		var p1 = extract.unwrapFile("./test-data/testbasic.html");
 		var p2 = fs.readFileAsync("./test-data/testbasic.clean.html");
-		return Promise.join(p1, p2, function(r1, r2){ 
+		return Promise.join(p1, p2, function(r1, r2){
 			r2 = cheerio.load(r2).html();
 			assert(r1 === r2);
 		});
 	});
-});	
+});

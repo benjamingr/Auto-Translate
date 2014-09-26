@@ -30,7 +30,7 @@ describe("JS translation", function(){
 	});
 	it("doesn't touch sub-names of functions", function(){
 		assert(t.extractJS("translatedFoo('H','H')").length === 0);
-	});	
+	});
 	it("extracts something on basic case", function(){
 		assert(t.extractJS("translated('H','H')").length === 1);
 	});

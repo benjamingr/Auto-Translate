@@ -49,7 +49,7 @@ TranslationManager.prototype.htmlFromJson = function htmlFromJson(jsonSource, ht
 };
 
 TranslationManager.prototype.jsFromJSON = function jsFromJSON(jsonSource, jsSource, jsDest){
-	
+
 	var readJs = fs.readFileAsync(jsSource).then(function(el){ return el.toString(); });
 	return Promise.all([readJson(jsonSource), readJs]).bind(this).spread(function(json, js){
 		var translator = this.languageManager.jsTranslateHandler;
