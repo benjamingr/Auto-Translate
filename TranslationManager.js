@@ -36,7 +36,7 @@ TranslationManager.prototype.jsonFromHTML = function jsonFromHTML(htmlSource, js
 
 
 TranslationManager.prototype.htmlFromJson = function htmlFromJson(jsonSource, htmlSrc, htmlDest){
-
+	console.log(jsonSource);
 	return readJson(jsonSource).then(function(json){
 		return this.languageManager.tagHandler.renamedFileAsHtml(htmlSrc, json);
 	}.bind(this)).then(function(html){
@@ -65,7 +65,12 @@ TranslationManager.prototype.jsFromJSON = function jsFromJSON(jsonSource, jsSour
 
 function readJson(path){
 	return fs.readFileAsync(path).
+				  catch(function(e){
+				  	  return fs.writeFileAsync(path,"{}").return({});
+				  }).
 				  then(function(el){ return el.toString(); }).
-				  then(JSON.parse);
+				  then(JSON.parse).catch(SyntaxError, function(){
+				  	  return {}; // JSON syntax error -> empty object
+				  });
 }
 module.exports = TranslationManager;

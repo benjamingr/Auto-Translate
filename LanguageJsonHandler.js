@@ -61,6 +61,10 @@ LanguageJsonHandler.prototype.mergeIntoLocal = function(toFile) {
 function readJson(fromFile){
 	return fs.readFileAsync(fromFile).then(function(buffer){
 		return buffer.toString();
-	}).then(JSON.parse);
+	}).then(JSON.parse).catch(function(e){
+		// no file or malformed - so return an empty object
+		// this is a part of the creation process
+		return {};
+	});
 }
 module.exports = LanguageJsonHandler

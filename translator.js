@@ -67,7 +67,7 @@ function backupFilesBeforeOps(lang, fName){
 	return fs.statAsync("./bak/").error(function(){
 		return fs.mkdirAsync("./bak/");
 	}).then(function(){
-		return fs.readFileAsync(fName);
+		return fs.readFileAsync(fName).error(function(e){})
 	}).then(function(data){
 		var fPath = "./bak/" + path.basename(fName)+"."+lang+"."+Date.now()+"."+fName.split(".").pop();
 		return fs.writeFileAsync(fPath, data);
