@@ -1,11 +1,11 @@
-Auto-Translate
+# Auto-Translate
 ======================
 
 Translating multiple languages in JS/HTML through JSON seamlessly.
 
 We use this at TipRanks for Angular internally, anyone who wants to read the code have a go - but this is for internal use and we do not intend to provide paid support to any external users, issues/SO questions welcome. Pull requests will be entertained if accompanied by tests.
 
-###What this does
+### What this does
 
 This package is meant for processing multiple languages in Angular. Translation files are stored in JSON and the script uses esprima/escodegen or cheerio to swap the file content with the relevant translation.
 
@@ -33,7 +33,7 @@ When you're done working on it, you can push it back to the json and load anothe
 
 The HTML syntax is `<tr-translated="greeting">Hello</tr-translated>` and does the same thing.
 
-###Usage
+### Usage
 
 Generating or updating the JSON from an HTML or JS file:
 
@@ -49,17 +49,17 @@ node translator.js  --source=YOURJSOrHTMLSourceFile --json=YOURJSON.json --lang=
 
 For more info please see [The Getting Started Page](./GettingStarted.MD)
 
-###Running tests
+### Running tests
 
 Run the tests using `mocha tests`.
 
 
 Users may use it under the MIT license.
 
-###Support
+### Support
 
 You may open issues for support here but I'd rather have them at StackOverflow.
 
-###Contributing
+### Contributing
 
 Contributions are welcome
