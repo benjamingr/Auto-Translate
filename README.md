@@ -28,7 +28,7 @@ Now, if you want to build or debug the german version, you can run the code with
 
     var foo = translated("greeting","Hallo!");
 
-When you're done working on it, you can push it back to the json and load another version. This also has the advantage that translation is a build step and there is no performance overhead in having a translated site.
+When you're done working on it, you can push it back to the JSON and load another version. This also has the advantage that translation is a build step and there is no performance overhead in having a translated site.
 
 The HTML syntax is `<tr-translated="greeting">Hello</tr-translated>` and does the same thing.
 
@@ -46,7 +46,7 @@ Updating the HTML or JS file with JSON
 node translator.js  --source=YOURJSOrHTMLSourceFile --json=YOURJSON.json --lang=en --dir=jsonToFile
 ```
 
-For more info please see [The Getting Started Page](./GettingStarted.MD)
+For more info please see [the getting started page](./GettingStarted.MD).
 
 ### Running tests
 
@@ -61,4 +61,4 @@ You may open issues for support here but I'd rather have them at StackOverflow.
 
 ### Contributing
 
-Contributions are welcome
+Contributions are welcome.
