@@ -1,5 +1,4 @@
 # Auto-Translate
-======================
 
 Translating multiple languages in JS/HTML through JSON seamlessly.
 
