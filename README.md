@@ -1,11 +1,10 @@
-Auto-Translate
-======================
+# Auto-Translate
 
 Translating multiple languages in JS/HTML through JSON seamlessly.
 
 We use this at TipRanks for Angular internally, anyone who wants to read the code have a go - but this is for internal use and we do not intend to provide paid support to any external users, issues/SO questions welcome. Pull requests will be entertained if accompanied by tests.
 
-###What this does
+### What this does
 
 This package is meant for processing multiple languages in Angular. Translation files are stored in JSON and the script uses esprima/escodegen or cheerio to swap the file content with the relevant translation.
 
@@ -29,11 +28,11 @@ Now, if you want to build or debug the german version, you can run the code with
 
     var foo = translated("greeting","Hallo!");
 
-When you're done working on it, you can push it back to the json and load another version. This also has the advantage that translation is a build step and there is no performance overhead in having a translated site.
+When you're done working on it, you can push it back to the JSON and load another version. This also has the advantage that translation is a build step and there is no performance overhead in having a translated site.
 
 The HTML syntax is `<tr-translated="greeting">Hello</tr-translated>` and does the same thing.
 
-###Usage
+### Usage
 
 Generating or updating the JSON from an HTML or JS file:
 
@@ -47,19 +46,19 @@ Updating the HTML or JS file with JSON
 node translator.js  --source=YOURJSOrHTMLSourceFile --json=YOURJSON.json --lang=en --dir=jsonToFile
 ```
 
-For more info please see [The Getting Started Page](./GettingStarted.MD)
+For more info please see [the getting started page](./GettingStarted.MD).
 
-###Running tests
+### Running tests
 
 Run the tests using `mocha tests`.
 
 
 Users may use it under the MIT license.
 
-###Support
+### Support
 
 You may open issues for support here but I'd rather have them at StackOverflow.
 
-###Contributing
+### Contributing
 
-Contributions are welcome
+Contributions are welcome.
